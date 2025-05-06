@@ -1,5 +1,6 @@
 "use client"
 
+// Custom hook for creating toast notifications
 // Inspired by react-hot-toast library
 import * as React from "react"
 
@@ -8,9 +9,12 @@ import type {
   ToastProps,
 } from "@/components/ui/toast"
 
+// Maximum number of toasts visible at once
 const TOAST_LIMIT = 1
+// Duration in milliseconds before toast is removed from DOM after being dismissed
 const TOAST_REMOVE_DELAY = 1000000
 
+// Toast data structure with additional properties
 type ToasterToast = ToastProps & {
   id: string
   title?: React.ReactNode
@@ -18,6 +22,7 @@ type ToasterToast = ToastProps & {
   action?: ToastActionElement
 }
 
+// Actions that can be performed on toasts
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
   UPDATE_TOAST: "UPDATE_TOAST",
@@ -25,8 +30,10 @@ const actionTypes = {
   REMOVE_TOAST: "REMOVE_TOAST",
 } as const
 
+// Counter for generating unique IDs
 let count = 0
 
+// Generate a unique ID for each toast
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER
   return count.toString()

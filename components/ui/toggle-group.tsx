@@ -1,5 +1,7 @@
 "use client"
 
+// Toggle group component based on Radix UI's ToggleGroup primitive
+// Provides a group of toggleable buttons where users can select one or multiple options
 import * as React from "react"
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group"
 import { type VariantProps } from "class-variance-authority"
@@ -7,6 +9,7 @@ import { type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { toggleVariants } from "@/components/ui/toggle"
 
+// Context to share toggle variant styles between parent and children
 const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants>
 >({
@@ -14,6 +17,7 @@ const ToggleGroupContext = React.createContext<
   variant: "default",
 })
 
+// Main toggle group container component
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
@@ -32,6 +36,7 @@ const ToggleGroup = React.forwardRef<
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName
 
+// Individual toggle group item component
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &

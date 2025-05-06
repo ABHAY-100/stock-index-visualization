@@ -1,5 +1,7 @@
 "use client"
 
+// Toast UI components based on Radix UI's Toast primitive
+// Provides accessible toast notifications with customizable appearance
 import * as React from "react"
 import * as ToastPrimitives from "@radix-ui/react-toast"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -7,8 +9,10 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+// Toast provider component that wraps the application
 const ToastProvider = ToastPrimitives.Provider
 
+// Toast viewport defines the container where toasts appear
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>

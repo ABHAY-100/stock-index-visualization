@@ -1,5 +1,7 @@
 "use client"
 
+// Component for visualizing stock index price data with charts
+// Displays historical price trends and key metrics
 import { useMemo } from "react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from "recharts"
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
@@ -13,6 +15,7 @@ interface IndexChartProps {
 }
 
 export default function IndexChart({ data, indexName }: IndexChartProps) {
+  // Process and sort data for the chart display
   const chartData = useMemo(() => {
     const sortedData = [...data].sort((a, b) => {
       return new Date(a.index_date).getTime() - new Date(b.index_date).getTime()
@@ -29,11 +32,10 @@ export default function IndexChart({ data, indexName }: IndexChartProps) {
     }))
   }, [data])
 
+  // Calculate key metrics for display
   const latestData = chartData[chartData.length - 1] || { close: 0, open: 0, change: 0, changePercent: 0 }
   const firstData = chartData[0] || { close: 0 }
   const overallChange = latestData.close - firstData.close
-  // const overallChangePercent = (overallChange / firstData.close) * 100
-
   const highestValue = Math.max(...chartData.map((item) => item.high))
   const lowestValue = Math.min(...chartData.filter((item) => item.low > 0).map((item) => item.low))
 

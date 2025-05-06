@@ -1,5 +1,7 @@
 "use client"
 
+// Toaster component that renders active toast notifications
+// Uses the useToast hook to access and display toast state
 import { useToast } from "@/hooks/use-toast"
 import {
   Toast,
@@ -11,6 +13,7 @@ import {
 } from "@/components/ui/toast"
 
 export function Toaster() {
+  // Get active toasts from the toast hook
   const { toasts } = useToast()
 
   return (

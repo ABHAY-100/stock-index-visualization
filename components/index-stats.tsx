@@ -1,5 +1,7 @@
 "use client"
 
+// Component that displays detailed statistics for a stock index
+// Shows key metrics and historical data in a tabular format
 import { useMemo } from "react"
 import type { IndexData } from "@/types"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,12 +14,14 @@ interface IndexStatsProps {
 }
 
 export default function IndexStats({ data, indexName }: IndexStatsProps) {
+  // Sort data by date (most recent first) for display
   const sortedData = useMemo(() => {
     return [...data].sort((a, b) => {
       return new Date(b.index_date).getTime() - new Date(a.index_date).getTime()
     })
   }, [data])
 
+  // Get latest data point for summary metrics
   const latestData = sortedData[0] || {}
 
   if (data.length === 0) {

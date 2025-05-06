@@ -1,6 +1,8 @@
 "use client"
 
-// Inspired by react-hot-toast library
+// This file is duplicated from hooks/use-toast.ts
+// It provides the same toast functionality but is located in the UI components directory
+// Consider consolidating these files to avoid duplication
 import * as React from "react"
 
 import type {
