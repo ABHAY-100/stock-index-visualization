@@ -7,7 +7,7 @@ A Next.js application for visualizing and analyzing stock market indices.
 ### Prerequisites
 
 - Node.js (v16.0.0 or higher)
-- npm
+- pnpm
 
 ### Installation
 
@@ -21,7 +21,7 @@ cd stock-index-visualization
 2. Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 
@@ -30,7 +30,7 @@ npm install
 Start the development server:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
@@ -38,6 +38,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 ### Building for Production
 
 ```bash
-npm run build
-npm start
+pnpm run build
+pnpm start
 ```
